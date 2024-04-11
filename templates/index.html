@@ -1,0 +1,48 @@
+    {% extends 'base.html' %}
+    {% block title %}Open PGP{% endblock %}
+
+    {%block content%}
+
+    <header class="container-fluid bg-primary text-white py-3">
+        <h1 class="text-center">Chiffrement et Déchiffrement OpenPGP</h1>
+    </header>
+    <main class="container py-5">
+        <section class="row">
+            <div class="col-md-6">
+                <h2>Chiffrer un fichier</h2>
+                <p>Protégez vos fichiers sensibles en les chiffrant avec OpenPGP. 
+                Choisissez simplement un fichier et définissez une phrase de passe.</p>
+                <form action="{{ url_for('index')}}" method="POST">
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="fichier-chiffrer" name="fichier-chiffrer">
+                        <label class="input-group-text" for="fichier-chiffrer">Fichier à chiffrer</label>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" id="phrase-passe-chiffrer" name="phrase-passe-chiffrer">
+                        <label class="input-group-text" for="phrase-passe-chiffrer">Phrase de passe</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Chiffrer</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2>Déchiffrer un fichier</h2>
+                <p>Déchiffrez vos fichiers chiffrés avec OpenPGP en utilisant votre phrase de passe.</p>
+                <form action="{{ url_for('index')}}" method="POST">
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="fichier-dechiffrer" name="fichier-dechiffrer">
+                        <label class="input-group-text" for="fichier-dechiffrer">Fichier à déchiffrer</label>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" class="form-control" id="phrase-passe-dechiffrer" name="phrase-passe-dechiffrer">
+                        <label class="input-group-text" for="phrase-passe-dechiffrer">Phrase de passe</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Déchiffrer</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="container-fluid bg-primary text-white p-3 m-4">
+        <p class="text-center">Copyright &copy; cedconception 2024</p>
+    </footer>
+
+    {%endblock%}
